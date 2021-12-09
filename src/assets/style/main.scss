@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* 定义变量 */
+    --bgColor: #efeeee;
+    --color: #333;
+    /* rgba的四个值分别为：红(R)、绿(G)、蓝(B)、透明度(A) */
+    --xntshadow: 18px 18px 30px rgba(0, 0, 0, 0.1), -18px -18px 30px rgba(255, 255, 255, 1);
+    --xnthovershadow: 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(255, 255, 255, 0.8), inset 18px 18px 30px rgba(0, 0, 0, 0.1), inset -18px -18px 30px rgba(255, 255, 255, 1);
+}
+
+a {
+    text-decoration: none;
+}
