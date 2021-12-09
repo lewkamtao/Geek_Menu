@@ -96,8 +96,8 @@
 import { ref, defineProps, onMounted } from "vue";
 import axios from "axios";
 
-const form = ref({});
-const user = ref({});
+const form = ref({} as any);
+const user = ref({} as any);
 
 const props = defineProps({
   menuData: {
