@@ -121,7 +121,7 @@ const updated = async () => {
   alert(res.data.tips);
 };
 
-const add = (i) => {
+const add = (i: any) => {
   form.value.menu[i].siteGroup.push({
     name: "",
     icon: "",
@@ -129,7 +129,7 @@ const add = (i) => {
   });
 };
 
-const loginOut = (i) => {
+const loginOut = (i: any) => {
   localStorage.clear();
   isLogin.value = false;
 };
