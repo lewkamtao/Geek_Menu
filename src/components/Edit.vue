@@ -94,8 +94,9 @@
 
 <script setup lang="ts">
 import { ref, defineProps, onMounted } from "vue";
+import config from "../../config.json";
 import axios from "axios";
-
+ 
 const form = ref({} as any);
 const user = ref({} as any);
 
@@ -113,7 +114,7 @@ const updated = async () => {
     form.value.updateTime = new Date().getTime();
   }
 
-  var res = await axios.put("http://106.53.126.48:3094/menu", form.value);
+  var res = await axios.put(config.host + "/menu", form.value);
   if (res.data.code == 401) {
     localStorage.clear();
     isLogin.value = false;
@@ -135,7 +136,7 @@ const loginOut = (i: any) => {
 };
 
 const login = async () => {
-  var res = await axios.post("http://localhost:3094/login", user.value);
+  var res = await axios.post(config.host + "/login", user.value);
   if (res.data.code != 200) {
     localStorage.clear();
     isLogin.value = false;
