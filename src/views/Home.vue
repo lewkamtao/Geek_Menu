@@ -257,7 +257,7 @@ const nav = ref([
 const isEdit = ref(false);
 const page = ref(1);
 const n_cid = ref("find");
-const n_sub = ref("find");
+const n_sub = ref("");
 const isLoading = ref(false);
 
 watch(n_cid, () => {
@@ -294,7 +294,9 @@ const getMenuList = (type: any) => {
 const getSubMenuList = () => {
   axios
     .get(
-      `/bd/cool/sub-menu?page=1&tags=&sort=sort-hot&pid=${n_cid || "find"}&wd=`
+      `/bd/cool/sub-menu?page=1&tags=&sort=sort-hot&pid=${
+        n_cid.value || "find"
+      }&wd=`
     )
     .then((res) => {
       subMenuList.value = res.data.list;
