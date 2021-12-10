@@ -266,7 +266,7 @@ watch(n_cid, () => {
 watch(n_sub, () => {
   getMenuList("new");
 });
-const getMenuList = (type) => {
+const getMenuList = (type: any) => {
   if (type == "new") {
     menuList.value = [];
   }
