@@ -1,6 +1,6 @@
 {
-    "baseUrl": "http://menu.api.kamtao.com",
-    "port": 3094,
+    "host": "http://106.53.126.48",
+    "port": 3093,
     "username": "admin",
     "password": "123456",
     "secret": "nvkliovqv"
