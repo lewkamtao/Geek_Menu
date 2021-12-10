@@ -114,9 +114,9 @@ onMounted(() => {
 
 const menuData = ref({} as any);
 const isEdit = ref(false);
- 
+
 const getMenuList = () => {
-  axios.get(config.host + "/menu/list").then((res) => {
+  axios.get(`${config.host}:${config.port}/menu/list`).then((res) => {
     menuData.value = res.data.data;
   });
 };
