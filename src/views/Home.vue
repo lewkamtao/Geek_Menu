@@ -256,11 +256,11 @@ const nav = ref([
 
 const isEdit = ref(false);
 const page = ref(1);
-const n_cid = ref("");
-const n_sub = ref("");
+const n_cid = ref("find");
+const n_sub = ref("find");
 const isLoading = ref(false);
 
-watch(n_cid, () => {
+watch(n_cid, () => { 
   getMenuList("new");
 });
 watch(n_sub, () => {
