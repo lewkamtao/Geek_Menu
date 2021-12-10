@@ -17,6 +17,17 @@
     padding-left: 10px;
     font-size: 16px;
   }
+  .del {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .del:hover {
+    transform: scale(1.05);
+  }
+  .del:active {
+    transform: scale(0.95);
+  }
   input:focus {
     outline: 2px #000 solid;
   }
@@ -129,7 +140,24 @@ const add = (i: any) => {
     site_url: "",
   });
 };
-
+const addGroup = (i: any) => {
+  form.value.menu.splice(i + 1, 0, {
+    title: "未命名",
+    siteGroup: [
+      {
+        name: "",
+        icon: "",
+        site_url: "",
+      },
+    ],
+  });
+};
+const del = (gi: any, si: any) => {
+  form.value.menu[gi].siteGroup.splice(si, 1);
+};
+const delGroup = (gi: any) => {
+  form.value.menu.splice(gi, 1);
+};
 const loginOut = (i: any) => {
   localStorage.clear();
   isLogin.value = false;
@@ -186,9 +214,7 @@ onMounted(() => {
         :key="'g' + gindex"
         class="group"
       >
-        <div class="title">
-          {{ group.title }}
-        </div>
+        <input v-model="group.title" style="height: 45px" class="title" />
         <div
           :key="'i' + sindex"
           v-for="(item, sindex) in group.siteGroup"
@@ -197,9 +223,34 @@ onMounted(() => {
           <input placeholder="名称" class="name" v-model="item.name" />
           <input placeholder="图标" class="icon" v-model="item.icon" />
           <input placeholder="链接" class="siteUrl" v-model="item.site_url" />
+          <div @click="del(gindex, sindex)" class="del">
+            <svg
+              style="color: rgb(204, 0, 0)"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="css-i6dzq1"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+          </div>
         </div>
         <div @click="add(gindex)" class="btn">添加站点</div>
-        <div @click="add(gindex)" class="btn">添加分组</div>
+        <div @click="addGroup(gindex)" class="btn">添加分组</div>
+        <div
+          @click="delGroup(gindex)"
+          v-if="group.siteGroup.length == 0"
+          class="btn"
+        >
+          删除分组
+        </div>
         <div @click="updated" class="btn">保存</div>
       </div>
       <div @click="loginOut" class="btn" style="background: #c00">退出登录</div>
