@@ -273,6 +273,7 @@ watch(n_sub, () => {
 });
 const getMenuList = (type: any) => {
   if (type == "new") {
+    page.value = 1;
     menuList.value = [];
   }
   if (type == "more") {
