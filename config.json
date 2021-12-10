@@ -1,5 +1,5 @@
 {
-    "host": "http://106.53.126.48",
+    "baseUrl": "http://menu.api.kamtao.com",
     "port": 3094,
     "username": "admin",
     "password": "123456",
