@@ -187,8 +187,8 @@ import axios from "axios";
 import config from "../../config.json";
 
 onMounted(() => {
-  getMenuList();
-  getSubMenuList();
+  getMenuList("new");
+  getSubMenuList("new");
 });
 
 const menuList = ref([] as any);
