@@ -113,7 +113,7 @@ const updated = async () => {
     form.value.updateTime = new Date().getTime();
   }
 
-  var res = await axios.put("http://localhost:3094/menu", form.value);
+  var res = await axios.put("http://106.53.126.48:3094/menu", form.value);
   if (res.data.code == 401) {
     localStorage.clear();
     isLogin.value = false;

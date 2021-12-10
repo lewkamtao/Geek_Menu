@@ -115,7 +115,7 @@ const menuData = ref({} as any);
 const isEdit = ref(false);
 
 const getMenuList = () => {
-  axios.get("http://localhost:3094/menu/list").then((res) => {
+  axios.get("http://106.53.126.48:3094/menu/list").then((res) => {
     menuData.value = res.data.data;
   });
 };
