@@ -188,7 +188,7 @@ import config from "../../config.json";
 
 onMounted(() => {
   getMenuList("new");
-  getSubMenuList("new");
+  getSubMenuList();
 });
 
 const menuList = ref([] as any);
@@ -262,6 +262,7 @@ const isLoading = ref(false);
 
 watch(n_cid, () => {
   getMenuList("new");
+  getSubMenuList();
 });
 watch(n_sub, () => {
   getMenuList("new");
