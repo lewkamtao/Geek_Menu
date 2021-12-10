@@ -262,10 +262,13 @@ const isLoading = ref(false);
 
 watch(n_cid, () => {
   getMenuList("new");
+  n_sub.value = "";
   getSubMenuList();
 });
 watch(n_sub, () => {
-  getMenuList("new");
+  if (n_sub.value) {
+    getMenuList("new");
+  }
 });
 const getMenuList = (type: any) => {
   if (type == "new") {
